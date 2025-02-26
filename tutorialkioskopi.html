@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Pemesanan Kopi KIOS KOPI</title>
+    <link rel="website icon" href="Kios Kopi Logo.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+     body {
+    background-color: #2e1f14;
+    color: #e0c9a6;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #c79a6b;
+}
+
+.step-card {
+    background: #3b2b20;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease-in-out;
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+    background: #4a3324;
+}
+
+.step-number {
+    background: #c79a6b;
+    color: white;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.step-content {
+    flex-grow: 1;
+}
+
+.step-content h5 {
+    font-size: 18px;
+    color: #f5d0a9;
+}
+
+.step-content p {
+    font-size: 14px;
+    color: #d4b28c;
+}
+
+a {
+    color: #f5d0a9;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+    color: #e6a15c;
+}
+
+/* Menu Section */
+.menu {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.menu-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.menu-item {
+    text-align: center;
+}
+
+.menu-item h3 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #c79a6b;
+    margin-bottom: 10px;
+}
+
+.menu-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #8b5e2e;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+.menu-button:hover {
+    background-color: #6a4823;
+    transform: scale(1.05);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .menu-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .step-card {
+        padding: 15px;
+    }
+}
+
+  
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Tutorial Pemesanan Kopi di KIOS KOPI</h2>
+        
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="step-card d-flex align-items-center" id="step1">
+                    <div class="step-number">1</div>
+                    <div class="step-content ms-3">
+                        <h5>Pilih Kopi Favorit Anda</h5>
+                        <p>Kunjungi <a href="galerikopi.html" style="text-decoration: none;">Galeri Kopi</a>
+                            atau <a href="menukopi.html" style="text-decoration: none;">Menu Kopi</a> dan pilih kopi yang ingin Anda pesan.</p>
+                    </div>
+                </div>
+                
+                <div class="step-card d-flex align-items-center" id="step2">
+                    <div class="step-number">2</div>
+                    <div class="step-content ms-3">
+                        <h5>Sesuaikan Pesanan</h5>
+                        <p>Pilih kopi (Biji kopi, Kopi bubuk, SIgnature Cafe atau Cup Cafe) yang anda suka sesuai selera.</p>
+                    </div>
+                </div>
+                
+                <div class="step-card d-flex align-items-center" id="step3">
+                    <div class="step-number">3</div>
+                    <div class="step-content ms-3">
+                        <h5>Menentukan Jumlah Kopi & Metode Pembayaran</h5>
+                        <p>Tentukan jumlah kopi yang anda pesan, kemudian pilih metode pembayaran yang anda inginkan.</p>
+                    </div>
+                </div>
+
+                <div class="step-card d-flex align-items-center" id="step4">
+                    <div class="step-number">3</div>
+                    <div class="step-content ms-3">
+                        <h5>Checkout via WhatsApp</h5>
+                        <p>Tekan Checkout via WhatsApp yang sudah tertautkan link nomor kontak WhatsApp untuk 
+                            detail pemesanan lebih lanjut .</p>
+                    </div>
+                </div>
+                
+                <div class="step-card d-flex align-items-center" id="step5">
+                    <div class="step-number">5</div>
+                    <div class="step-content ms-3">
+                        <h5>Nikmati Kopi Anda</h5>
+                        <p>Ambil pesanan Anda dan nikmati kopi favorit Anda.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+<!-- Menu Section -->
+<section class="menu" id="menu">
+    <div class="menu-container">
+        <div class="menu-item">
+            <h3>KIOS KOPI</h3>
+            <a href="index.html" class="menu-button">KIOS KOPI</a>
+        </div>
+    </div>
+  </section>
+    
+    <script>
+        gsap.from(".step-card", { 
+            opacity: 0, 
+            y: 50, 
+            duration: 1, 
+            stagger: 0.3 
+        });
+    </script>
+    
+</body>
+</html>

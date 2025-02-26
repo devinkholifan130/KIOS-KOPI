@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Data Penjualan - KIOS KOPI</title>
+    <link rel="website icon" href="Kios Kopi Logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+<style>
+    .bg-kioskopi {
+        background: #a5612a;
+    }
+
+    body {
+    background-color: #2d1e12; /* Warna latar belakang cokelat kopi */
+    font-family: 'Poppins', sans-serif;
+    color: #f5e1c8; /* Warna font krem */
+}
+
+.container {
+    background: #3b2a1a;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    margin: auto;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #d4a373; /* Warna emas kopi */
+}
+
+p.text-danger {
+    color: #e8c07d !important; /* Warna peringatan lebih lembut */
+}
+
+.form-label {
+    font-weight: bold;
+    color: #f5e1c8;
+}
+
+.form-control {
+    background: #5c4033;
+    border: none;
+    color: #fff;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.form-control:focus {
+    background: #6f4e37;
+    color: #fff;
+    border: 2px solid #d4a373;
+    box-shadow: none;
+}
+
+select.form-control {
+    cursor: pointer;
+}
+
+.btn-warning {
+    background: #b87333;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.btn-warning:hover {
+    background: #a05a2c;
+}
+
+.btn-success {
+    background: #8b5e3b;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.btn-success:hover {
+    background: #7a4e2d;
+}
+
+
+
+</style>
+</head>
+<body class="bg-kioskopi">
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Tambah Data Penjualan</h2>
+        <p class="text-danger text-center" style="font-weight: bold; font-size: 20px;">Hanya pihak KIOS KOPI yang boleh
+            mengisi form penambahan data bij kopi, kopi dan jumlah uang dan periode
+        </p>
+        <a href="kioskopidashboard.html" class="btn btn-warning">Keluar Dari Form</a>
+
+        <form id="salesForm">
+            <div class="mb-3">
+                <label class="form-label">Total Biji Kopi Terjual</label>
+                <input type="number" id="totalBijiKopi" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Total Kopi Bubuk Terjual</label>
+                <input type="number" id="totalKopiBubuk" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Total Kopi (SIGNATURE & CUP SERIES) Terjual</label>
+                <input type="number" id="totalKopi" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Jumlah Uang Dihasilkan (Rp)</label>
+                <input type="number" id="totalUang" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Periode</label>
+                <select id="periode" class="form-control">
+                    <option value="Harian">Harian</option>
+                    <option value="Bulanan">Bulanan</option>
+                    <option value="Tahunan">Tahunan</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Pilih Tanggal</label>
+                <input type="date" class="form-control" id="tanggal" required>
+            </div>
+
+
+            <button type="submit" class="btn btn-success w-100">+ Tambah</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("salesForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let totalBijiKopi = document.getElementById("totalBijiKopi").value;
+            let totalKopiBubuk = document.getElementById("totalKopiBubuk").value;
+            let totalKopi = document.getElementById("totalKopi").value;
+            let totalUang = document.getElementById("totalUang").value;
+            let periode = document.getElementById("periode").value;
+            let tanggal = document.getElementById("tanggal").value;
+
+            let salesData = {
+                totalBijiKopi: totalBijiKopi,
+                totalKopiBubuk: totalKopiBubuk,
+                totalKopi: totalKopi,
+                totalUang: totalUang,
+                periode: periode,
+                tanggal: tanggal
+            };
+
+            localStorage.setItem("salesData", JSON.stringify(salesData));
+
+            window.location.href = "kioskopidashboard.html";
+        });
+    </script>
+</body>
+</html>

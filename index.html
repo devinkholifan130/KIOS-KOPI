@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kios Kopi Coffee Shop</title>
+    <link rel="website icon" href="Kios Kopi Logo.png">
+    <!-- Coffee Style Style -->
+      <style>
+   /* Body Color */
+   :root {
+    --primary: #F4A460;
+    --secondary: #f7953f;
+    --tertiary: #f7b984;
+    --quartenary: #684120;
+    --bg: #010101;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+  }
+  
+  body {
+    font-family: "Poppins", sans-serif;
+    background-color: var(--bg);
+    color: white;
+  }
+  
+  /* Hero Section */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-image: url('Kios Kopi.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  
+  .hero::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    bottom: 0;
+    background: linear-gradient(0deg, rgba(1, 1, 3, 1) 8% rgba(255, 255, 255, 0) 50%);
+  }
+  
+  .hero .content {
+    padding: 1.4rem 7%;
+    max-width: 60rem;
+  }
+  
+  .hero .content h1 {
+    font-size: 4em;
+    color: var(--primary);
+    text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+    line-height: 1.2;
+  }
+  
+  .hero .content h1 span {
+    color: var(--primary);
+  }
+  
+  .hero .content p {
+    font-size: 1.6rem;
+    margin-top: 1rem;
+    line-height: 1.4;
+    font-weight: bold;
+    text-shadow: 3px 3px 3px rgba(1, 1, 3, 0.5);
+  
+  }
+  /* Animasi saat halaman dimuat */
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animasi Hover */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Gaya dasar tombol */
+.hero .content .cta,
+.hero .content .cta2,
+.hero .content .cta3, 
+.hero .content .cta4 {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 1rem 3rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    border-radius: 0.5rem;
+    box-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+    transition: all 0.3s ease-in-out;
+    animation: fadeSlideUp 0.8s ease-in-out;
+}
+
+/* Warna latar belakang tombol */
+.hero .content .cta {
+    background-color: var(--primary);
+}
+.hero .content .cta2 {
+    background-color: var(--secondary);
+}
+.hero .content .cta3 {
+    background-color: var(--tertiary);
+}
+.hero .content .cta4 {
+    background-color: var(--quartenary);
+}
+
+/* Hover Effect */
+.hero .content .cta:hover,
+.hero .content .cta2:hover,
+.hero .content .cta3:hover, 
+.hero .content .cta4:hover {
+    animation: pulse 0.5s ease-in-out;
+    box-shadow: 3px 3px 10px rgba(1, 1, 3, 0.6);
+}
+
+/* Fade-in Effect */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slide-up Effect */
+.slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.slide-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+  .scale-up {
+    transform: scale(0.8);
+    opacity: 0;
+    animation: scaleUp 1s forwards 1s;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  @keyframes scaleUp {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  /* Navbar Animation */
+@keyframes fadeSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+  /* Animasi zoom-in untuk gambar */
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+/* Navbar */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.4rem 7%;
+    background-color: rgba(1, 1, 1, 0.8); /* Transparan untuk efek elegan */
+    border-bottom: 1px solid #513c28;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    opacity: 0;
+    animation: fadeSlideDown 0.8s ease-in-out forwards;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Efek saat di-scroll */
+.navbar.scrolled {
+    background-color: rgba(1, 1, 1, 0.95);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Logo */
+.navbar .navbar-logo {
+    font-size: 2rem;
+    font-weight: 900;
+    color: white;
+    font-style: italic;
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar .navbar-logo span {
+    color: #F4A460;
+}
+
+/* Hover Animasi Logo */
+.navbar .navbar-logo:hover {
+    transform: scale(1.1);
+}
+
+/* Navbar Menu */
+.navbar .navbar-nav {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    gap: 2rem;
+}
+
+/* Navbar Link */
+.navbar .navbar-nav a {
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Hover Efek */
+.navbar .navbar-nav a:hover {
+    color: var(--primary);
+}
+
+/* Underline Animasi */
+.navbar .navbar-nav a::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary);
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar .navbar-nav a:hover::after {
+    transform: scaleX(1);
+}
+
+/* ---------------------- */
+/* SETTINGS ICON & DROPDOWN */
+/* ---------------------- */
+.navbar-settings {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.settings-icon {
+    font-size: 24px;
+    color: white;
+    transition: transform 0.3s ease-in-out;
+}
+
+.settings-icon:hover {
+    transform: rotate(30deg);
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+    width: 160px;
+    display: none;
+    list-style: none;
+    padding: 10px 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease-in-out;
+}
+
+.dropdown-menu.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    padding: 10px;
+}
+
+.dropdown-menu li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 8px 12px;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.dropdown-menu li a:hover {
+    background: #ff5733;
+    color: white;
+}
+
+
+/* Styling About Section */
+.about {
+    padding: 2rem 1rem;
+    background-color: #643407;
+}
+
+/* Animasi untuk judul */
+.about h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.4rem;
+    font-weight: bold;
+    opacity: 0;
+    animation: fadeSlideUp 0.8s ease-in-out forwards;
+}
+
+/* Warna teks khas kopi */
+.about h2 span {
+    color: #d2691e;
+}
+
+/* Row flexbox */
+.about .row {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Animasi untuk gambar */
+.about .row .about-img {
+    flex: 1 1 45%;
+    opacity: 0;
+    animation: zoomIn 0.8s ease-in-out forwards;
+}
+
+/* Hover effect untuk gambar */
+.about .row .about-img img {
+    width: 100%;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.about .row .about-img img:hover {
+    transform: scale(1.05);
+}
+
+/* Animasi untuk teks */
+.about .row .content {
+    flex: 1 1 45%;
+    opacity: 0;
+    animation: fadeSlideUp 1s ease-in-out forwards;
+}
+
+/* Judul dalam content */
+.about .row .content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #c9a482;
+}
+
+/* Paragraf dalam content */
+.about .row .content p {
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+    line-height: 1.6;
+    color: #a38a6e;
+}
+
+/* Keyframes Animasi */
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+  
+/* Maps Styling */
+.maps {
+    padding: 2rem 1rem;
+    background: linear-gradient(to bottom, #7B4A2C, #c09f86, #b68c51);
+    color: #ffffff; 
+    opacity: 0;
+    animation: fadeSlideUp 0.8s ease-in-out forwards;
+    transition: background 0.5s ease-in-out;
+}
+
+/* Hover efek untuk smooth background */
+.maps:hover {
+    background: linear-gradient(to bottom, #5d3220, #a98566, #9b703e);
+}
+
+/* Animasi untuk Judul */
+.maps h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2.4rem;
+    font-weight: bold;
+    opacity: 0;
+    animation: fadeSlideUp 1s ease-in-out forwards;
+}
+
+/* Warna teks khas kopi */
+.maps span {
+    color: #be732c;
+}
+
+/* Animasi untuk Paragraf */
+.maps p {
+    text-align: center;
+    max-width: 30rem;
+    margin: auto;
+    font-weight: bold;
+    line-height: 1.6;
+    color: #f0ddc3; 
+    font-family: 'Merriweather', serif;
+    font-size: 1.7rem;
+    opacity: 0;
+    animation: fadeSlideUp 1.2s ease-in-out forwards;
+}
+
+/* Animasi untuk Map */
+.maps .row {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Map dengan efek Zoom-In */
+.maps .row .map {
+    flex: 1 1 100%;
+    max-width: 100%;
+    height: 400px;
+    border: none;
+    opacity: 0;
+    animation: zoomIn 1s ease-in-out forwards;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Efek Hover untuk Map */
+.maps .row .map:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+  
+ /* Efek Glow saat Hover */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+}
+
+/* Paralaks Efek */
+@keyframes parallax {
+    from {
+        background-position: center top;
+    }
+    to {
+        background-position: center bottom;
+    }
+}
+
+/* Styling Follow Section */
+.follow {
+    text-align: center;
+    padding: 80px 20px;
+    background: url('Coffee Shop Wallpaper 5.jpg') center/cover no-repeat;
+    position: relative;
+    opacity: 0;
+    animation: fadeSlideUp 1s ease-in-out forwards, parallax 6s infinite alternate linear;
+}
+
+/* Overlay */
+.follow::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+/* Animasi untuk Judul */
+.follow h2 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #f5a623;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    animation: fadeSlideUp 1.2s ease-in-out forwards;
+}
+
+/* Styling dan Animasi Ikon Sosial Media */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    animation: fadeSlideUp 1.4s ease-in-out forwards;
+}
+
+/* Efek Glow dan Animasi Hover */
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+.social-icons a img {
+    width: 60px;
+    height: 60px;
+}
+
+/* Hover dengan Efek Glow */
+.social-icons a:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.2);
+    animation: glow 1.5s infinite alternate ease-in-out;
+}
+
+/* Keyframes Animasi */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Efek Hover pada Tautan */
+@keyframes linkHover {
+    0% {
+        color: #007bff;
+    }
+    50% {
+        color: #f4b183;
+    }
+    100% {
+        color: #007bff;
+    }
+}
+
+/* Efek Glow untuk Logo Bank */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    }
+}
+/* General Footer Styles */
+.footer {
+  background-color: #f8f9fa;
+  color: #212529;
+  padding: 3rem 2rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.4rem; /* Teks lebih besar agar nyaman dibaca */
+  animation: fadeInUp 1s ease-in-out;
+}
+
+/* Footer Container */
+.footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* Footer Section */
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+  opacity: 0;
+  animation: fadeInUp 1s ease-in-out forwards;
+  animation-delay: 0.3s;
+}
+
+/* Footer Titles */
+.footer-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 1.2rem;
+}
+
+.footer-title span {
+  color: #f4b183;
+}
+
+/* Footer Description */
+.footer-description {
+  font-size: 1.5rem;
+  color: #555;
+  margin-bottom: 1.2rem;
+  line-height: 1.6;
+}
+
+/* Footer Links */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.8rem;
+  font-size: 1.5rem; /* Ukuran teks lebih besar */
+  transition: transform 0.3s ease-in-out;
+}
+
+.footer-links a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+/* Efek Hover Link */
+.footer-links li:hover {
+  transform: translateX(5px);
+}
+
+.footer-links a:hover {
+  color: #ff7f50;
+  text-shadow: 0px 0px 8px rgba(255, 127, 80, 0.6);
+}
+
+/* Payment Methods */
+.payment-methods {
+  display: flex;
+  gap: 1rem;
+  opacity: 0;
+  animation: fadeInUp 1s ease-in-out forwards;
+  animation-delay: 0.6s;
+}
+
+.payment-methods img {
+  width: 60px; /* Ukuran lebih besar */
+  height: auto;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Efek Hover Payment Icons */
+.payment-methods img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-links li {
+    font-size: 1.4rem;
+  }
+}
+
+
+  
+  /* Media Queries */
+  
+  
+  /* Laptop */
+  @media (max-width: 1366px) {
+    html {
+      font-size: 75%;
+    }
+  }
+  
+  
+  /* Tablet */
+  @media (max-width: 750px) {
+    html {
+      font-size: 62.5%;
+    }
+  
+    #menu {
+      display: inline-block;
+    }
+  
+    .navbar .navbar-nav {
+      position: absolute;
+      top: 100%;
+      right: -100%;
+      background-color: #fff;
+      width: 30rem;
+      height: 100vh;
+      transition: 0.3s;
+    }
+  
+    .navbar .navbar-nav.active {
+      right: 0;
+    }
+  
+    .navbar .navbar-nav a {
+      color: var(--bg);
+      display: block;
+      margin: 1.5rem;
+      padding: 0.5rem;
+      font-size: 2rem;
+    }
+  }
+  
+  
+  
+  /* Mobile Phone */
+  @media (max-width: 450px) {
+    html {
+      font-size: 55%;
+    }
+  }
+        </style>
+    <!-- Website Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,
+    200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Feather Icons Script -->
+    <script src="https://unpkg.com/feather-icons"></script>
+  </head>
+  <body>
+  <!-- Navbar -->
+<nav class="navbar">
+  <a href="#" class="navbar-logo">Kios<span>Kopi</span></a>
+
+  <div class="navbar-nav">
+    <a href="#home">Home</a>
+    <a href="#about">Tentang Kios Kopi</a>
+    <a href="#maps">Lokasi</a>
+    <a href="#follow">Follow Sosmed Kami</a>
+    <a href="kioskopidashboard.html">Kios Kopi Dashboard</a>
+  </div>
+</nav>
+
+
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+  <main class="content">
+    <h1  class="fade-in">KIOS KOPI</h1>
+    <p class="slide-up">Menyediakan berbagai kopi asli dengan biji kopi Arabica dan Robusta</p>
+    <a href="galerikopi.html" class="cta">Beli Sekarang</a>
+    <a href="daftarkopi.html" class="cta2">Daftar Kopi</a>
+    <a href="koleksikopi.html" class="cta3">Koleksi Kopi</a>
+    <a href="tutorialkioskopi.html" class="cta4">Tutorial Pemesanan Kopi</a>
+  </main>
+
+</section>
+
+<!-- About Section -->
+<section id="about" class="about">
+  <h2>Tentang <span>Kios Kopi</span></h2>
+
+  <div class="row">
+    <div class="about-img">
+      <img src="Coffee Shop About.jpg" alt="Tentang Kios Kopi">
+    </div>
+    <div class="content">
+      <h3>Mengapa anda memilih dan menyukai kopi kami?</h3>
+      <p>Karena hanya di Kios Kopi Paspon (Pasar Pon) yang paling enak dan murah di Purwokerto</p>
+      <p>Segeralah beli di tempat kami sebelum kehabisan!</p>
+    </div>
+  </div>
+</section>
+
+ <!-- Location/Maps Section -->
+ <section id="maps" class="maps">
+  <h2>Lokasi <span>Kios Kopi</span></h2>
+  <p>Inilah lokasi Kios Kopi di Pasar Pon</p>
+ 
+  <div class="row">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.38297920417!2d109.21828577379901!3d-7.422799073112945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e655e6f27f293cd%3A0x5a1f2c80ee35608e!2sJl.%20Ps.%20Pon%20Utara%2C%20Bantarsoka%2C%20Kec.%20Purwokerto%20Bar.%2C%20Kabupaten%20Banyumas%2C%20Jawa%20Tengah%2053133!5e0!3m2!1sid!2sid!4v1736680833569!5m2!1sid!2sid"
+             allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
+  </div>
+
+
+ </section>
+
+ <section id="follow" class="follow">
+  <h2>Follow Instagram Dan TikTok Kami</h2>
+  <div class="social-icons">
+      <a href="https://www.instagram.com/kioskopi.idn/" target="_blank">
+          <img src="Instagram Logo.png" alt="Instagram">
+      </a>
+      <a href="https://www.tiktok.com/@kioskopi.idn?lang=id-ID" target="_blank">
+          <img src="TikTok Logo.png" alt="TikTok">
+      </a>
+  </div>
+</section>
+
+
+ <!-- Footer -->
+ <footer class="footer">
+  <div class="container">
+    <div class="footer-section">
+      <h3 class="footer-title">Kios <span>Kopi</span></h3>
+      <p class="footer-description">
+        Menyajikan kopi terbaik dengan cita rasa khas. Nikmati pengalaman kopi terbaik hanya di Kios Kopi.
+      </p>
+      <div class="payment-methods">
+        <img src="Mandiri Icon.png" alt="Mandiri">
+        <img src="BRI Icon.png" alt="BRI">
+        <img src="BNI Icon.png" alt="BNI">
+      </div>
+    </div>
+    <div class="footer-section">
+      <h4 class="footer-title">Informasi</h4>
+      <ul class="footer-links">
+        <li style="font-size: 20px;">Tentang Kami</li>
+        <li style="font-size: 20px;">Kontak</li>
+        <li style="font-size: 20px;">Karir</li>
+        <li style="font-size: 20px;">Lokasi</li>
+        <li style="font-size: 20px;">Kebijakan Privasi</li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4 class="footer-title">Bantuan</h4>
+      <ul class="footer-links">
+        <li style="font-size: 20px;">FAQ</a></li>
+        <li style="font-size: 20px;">Dukungan Pelanggan</a></li>
+        <li style="font-size: 20px;">Pengembalian Produk</a></li>
+        <li style="font-size: 20px;">Syarat dan Ketentuan</a></li>
+        <li style="font-size: 20px;">Laporkan Masalah</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      const navbar = document.querySelector(".navbar");
+  
+      window.addEventListener("scroll", function () {
+          if (window.scrollY > 50) {
+              navbar.classList.add("scrolled");
+          } else {
+              navbar.classList.remove("scrolled");
+          }
+      });
+  });
+  </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      const footer = document.querySelector(".footer");
+      const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  footer.classList.add("show");
+              }
+          });
+      }, { threshold: 0.2 });
+
+      observer.observe(footer);
+  });
+</script>
+
+  
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  const navbar = document.querySelector(".navbar");
+  let lastScrollTop = 0;
+
+  window.addEventListener("scroll", function () {
+    let scrollTop = window.scrollY;
+
+    if (scrollTop > lastScrollTop) {
+      // Scroll ke bawah, sembunyikan navbar dengan efek halus
+      navbar.style.transform = "translateY(-100%)";
+      navbar.style.transition = "transform 0.5s ease-in-out";
+    } else {
+      // Scroll ke atas, munculkan navbar dengan efek halus
+      navbar.style.transform = "translateY(0)";
+      navbar.style.transition = "transform 0.5s ease-in-out";
+    }
+
+    lastScrollTop = scrollTop;
+  });
+
+  // Animasi Fade-In dan Slide-Up saat scroll
+  const elements = document.querySelectorAll(".fade-in, .slide-up");
+
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  elements.forEach((el) => observer.observe(el));
+});
+
+</script>
+
+<script>
+// Floating Effect Navbar saat di-scroll
+window.addEventListener("scroll", function () {
+    let navbar = document.querySelector(".navbar");
+    if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+    } else {
+        navbar.classList.remove("scrolled");
+    }
+});
+
+// Toggle Dropdown Settings
+document.getElementById("settingsIcon").addEventListener("click", function () {
+    let dropdown = document.getElementById("dropdownMenu");
+    dropdown.classList.toggle("show");
+});
+
+// Klik di luar dropdown untuk menutupnya
+document.addEventListener("click", function (event) {
+    let dropdown = document.getElementById("dropdownMenu");
+    let settingsIcon = document.getElementById("settingsIcon");
+
+    if (!settingsIcon.contains(event.target) && !dropdown.contains(event.target)) {
+        dropdown.classList.remove("show");
+    }
+});
+</script>
+
+  </body>
+</html>

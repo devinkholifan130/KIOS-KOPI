@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Kopi KIOS KOPI</title>
+    <link rel="website icon" href="Kios Kopi Logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+             body {
+    font-family: "Poppins", sans-serif;
+    color: white;
+    background-color: #f8f5f1;
+    margin: 0;
+}
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    background: url('Coffee Shop About.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Overlay Gelap */
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+/* Animasi Parallax */
+@keyframes parallaxBg {
+    0% {
+        background-position: center center;
+    }
+    100% {
+        background-position: center 10%;
+    }
+}
+
+.hero {
+    animation: parallaxBg 10s linear infinite alternate;
+}
+
+/* Animasi Fade-in dan Zoom */
+.hero .content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    animation: fadeZoomIn 1.5s ease-out forwards;
+}
+
+@keyframes fadeZoomIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Animasi Teks */
+.hero .content h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    line-height: 1.2;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.5s ease-out 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero .content h1 span {
+    color: #f4b183;
+}
+
+.hero .content p {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.5s ease-out 0.8s forwards;
+}
+
+
+   /* Modern Coffee Shop Table Styling */
+   .coffee-bean {
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      padding: 40px 20px;
+      opacity: 0;
+            transform: translateY(50px);
+  }
+
+  .coffee-bean h2 {
+      font-size: 2rem;
+      color: #4a2c2a;
+      margin-bottom: 10px;
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+
+  .coffee-bean p {
+      color: #6F4E37;
+      font-size: 20px;
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+
+  
+   .coffee-powder {
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      padding: 40px 20px;
+      opacity: 0;
+            transform: translateY(50px);
+  }
+
+  .coffee-powder h2 {
+      font-size: 2rem;
+      color: #fae4cf;
+      margin-bottom: 10px;
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+
+  .coffee-powder p {
+      color: #f0d1bc;
+      font-size: 20px;
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+
+  
+   .signature-cafe {
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      padding: 40px 20px;
+      opacity: 0;
+            transform: translateY(50px);
+  }
+
+  .signature-cafe h2 {
+      font-size: 2rem;
+      color: #ffeede;
+      margin-bottom: 10px;
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+
+  .signature-cafe p {
+      color: #fcece2;
+      font-size: 20px;
+      opacity: 0;
+      transform: translateY(-10px);
+  }
+
+   .cup-cafe {
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      padding: 40px 20px;
+      opacity: 0;
+            transform: translateY(50px);
+  }
+
+  .cup-cafe h2 {
+      font-size: 2rem;
+      color: #f3d5b8;
+      opacity: 0;
+      transform: translateY(-20px);
+      margin-bottom: 10px;
+  }
+
+  .cup-cafe p {
+      color: #fcece2;
+      font-size: 20px;
+  }
+
+  
+  .coffee-bean { background-color: #f8f1e7; }
+        .coffee-powder { background-color: #966118; }
+        .signature-cafe { background-color: #cc9e5e; }
+        .cup-cafe { background-color: #b8a68d; }
+
+        /* Table Styling */
+    .kioskopi-table {
+        width: 80%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        background: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .kioskopi-table th, .kioskopi-table td {
+        padding: 15px;
+        color: #8B5E3B;
+        font-weight: bold;
+        font-size: 18px;
+        border: 1px solid #6F4E37;
+        text-align: left;
+    }
+
+    .kioskopi-table th {
+        background-color: #8B5E3B;
+        color: #fff;
+        text-transform: uppercase;
+    }
+
+    .kioskopi-table tr:nth-child(even) {
+        background-color: #f5e6d0;
+    }
+
+    .kioskopi-table tr:hover {
+        background-color: #e6c7a6;
+        transition: 0.3s;
+    }
+
+    .coffee-image {
+        width: 80px;
+        height: 80px;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+
+
+  /* Menu Section Styling */
+.menu {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.menu-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap; /* Agar responsif di layar kecil */
+}
+
+.menu-item {
+    text-align: center;
+    width: 250px; /* Agar semua menu memiliki lebar yang sama */
+}
+
+.menu-item h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #8B5E2E; /* Warna coklat sesuai tema */
+    margin-bottom: 10px;
+}
+
+.menu-button {
+    display: inline-block;
+    width: 100%;
+    padding: 10px 0;
+    background-color: #8B5E2E; /* Warna coklat */
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+
+.menu-button:hover {
+    background-color: #6A4823; /* Warna lebih gelap saat hover */
+}
+
+  
+  
+  /* Media Queries */
+  
+  /* Tablet */
+  @media (max-width: 750px) {
+    html {
+      font-size: 62.5%;
+    }
+  
+    #menu {
+      display: inline-block;
+    }
+  
+    .navbar .navbar-nav {
+      position: absolute;
+      top: 100%;
+      right: -100%;
+      background-color: #fff;
+      width: 30rem;
+      height: 100vh;
+      transition: 0.3s;
+    }
+  
+    .navbar .navbar-nav.active {
+      right: 0;
+    }
+  
+    .navbar .navbar-nav a {
+      color: var(--bg);
+      display: block;
+      margin: 1.5rem;
+      padding: 0.5rem;
+      font-size: 2rem;
+    }
+  }
+  
+  
+  
+  /* Mobile Phone */
+  @media (max-width: 450px) {
+    html {
+      font-size: 55%;
+    }
+  }
+
+    </style>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <center>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <main class="content">
+            <h1>Daftar <span>Harga Kopi</span></h1>
+            <p>Daftar harga dari biji kopi, kopi bubuk, minuman kopi kaleng dan minuman kopi Cup</p>
+        </main>
+    </section>
+
+
+<section class="coffee-bean" id="coffee-bean">
+    <h2>Harga <span>Biji Kopi</span></h2>
+    <p>Daftar harga biji kopi dari Kios Kopi</p>
+  
+    <table class="kioskopi-table">
+      <thead>
+          <tr>
+              <th>No</th>
+              <th>Nama Biji Kopi</th>
+              <th>Harga Satuan Biji Kopi</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>1</td>
+              <td>Arabika Enrekang</td>
+              <td>Rp.50.000,00. -</td>
+          </tr>
+          <tr>
+              <td>2</td>
+              <td>Arabika Banjarnegara</td>
+              <td>Rp.50.000,00, -</td>
+          </tr>
+          <tr>
+              <td>3</td>
+              <td>Arabika Papua Moenemani</td>
+              <td>Rp.50.000,00, -</td>
+          </tr>
+          <tr>
+              <td>4</td>
+              <td>Arabika Puntang</td>
+              <td>Rp.50.000,00, -</td>
+          </tr>
+          <tr>
+              <td>5</td>
+              <td>Arabika Bali Kintamani</td>
+              <td>Rp.130.000,00, -</td>
+          </tr>
+          
+          <tr>
+              <td>6</td>
+              <td>Arabika Bali</td>
+              <td>Rp.130.000,00, -</td>
+          </tr>
+          <tr>
+              <td>7</td>
+              <td>Arabika Gayo Aceh</td>
+              <td>Rp.130.000,00, -</td>
+          </tr>
+          <tr>
+              <td>8</td>
+              <td>Arabika Kerinci</td>
+              <td>Rp.150.000,00, -</td>
+          </tr>
+          <tr>
+              <td>9</td>
+              <td>Arabika Dolok Sanggul</td>
+              <td>Rp.200.000,00, -</td>
+          </tr>
+  <tr>
+              <td>10</td>
+              <td>Arabika Toraja</td>
+              <td>Rp.200.000,00, -</td>
+          </tr>
+          <tr>
+              <td>11</td>
+              <td>Arabika Mandailing</td>
+              <td>Rp.250.000,00, -</td>
+          </tr>
+          <tr>
+              <td>12</td>
+              <td>Arabika Temanggung</td>
+              <td>Rp.200.000,00, -</td>
+          </tr>
+         
+        <tr>
+            <td>13</td>
+            <td>Arabika Halu Banana</td>
+            <td>Rp.200.000,00, -</td>
+        </tr>
+       
+  <tr>
+            <td>14</td>
+            <td>Robusta Temanggung</td>
+            <td>Rp.200.000,00, -</td>
+        </tr>
+       
+  <tr>
+            <td>15</td>
+            <td>Robusta Banjarnegara</td>
+            <td>Rp.200.000,00, -</td>
+        </tr>
+       
+  <tr>
+            <td>16</td>
+            <td>Robusta Toraja</td>
+            <td>Rp.250.000,00, -</td>
+        </tr>
+         
+      <tr>
+            <td>17</td>
+            <td>Robusta Bali</td>
+            <td>Rp.250.000,00, -</td>
+        </tr>
+      <tr>
+            <td>18</td>
+            <td>Robusta Lintong</td>
+            <td>Rp.250.000,00, -</td>
+        </tr>
+        <tr>
+           
+        <tr>
+            <td>19</td>
+            <td>Robusta Pagak Alam</td>
+            <td>Rp.250.000,00, -</td>
+        </tr>
+        <tr>
+            <td>20</td>
+            <td>Arabika Flores</td>
+            <td>Rp.250.000,00, -</td>
+        </tr>
+         
+      </tbody>
+  </table>
+</section>
+
+
+<hr class="coffee-separator" style=" border: none;
+height: 4px;
+background: linear-gradient(to right, #8B5E3B, #6F4E37, #4A2C2A);
+width: 80%;
+margin: 30px auto;
+border-radius: 10px;">
+
+<section id="coffee-powder" class="coffee-powder">
+    
+<h2>Harga <span>Kopi Bubuk</span></h2>
+<p>Daftar harga kopi bubuk dari Kios Kopi</p>
+
+<table class="kioskopi-table">
+  <thead>
+      <tr>
+          <th>No</th>
+          <th>Nama Kopi Bubuk</th>
+          <th>Harga Satuan Kopi Bubuk</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Kopi Bubuk Arabika Garut</td>
+      <td>Rp.50.000,00, -</td>
+  </tr>
+
+<tr>
+      <td>2</td>
+      <td>Kopi Bubuk Robusta Toraja</td>
+      <td>Rp.100.000,00, -</td>
+  </tr>
+
+<tr>
+      <td>3</td>
+      <td>Kopi Bubuk Arabika Wanayasa</td>
+      <td>Rp.200.000,00, -</td>
+  </tr>
+     
+     
+  </tbody>
+</table>
+
+</section>
+
+
+<hr class="coffee-separator" style=" border: none;
+height: 4px;
+background: linear-gradient(to right, #8B5E3B, #6F4E37, #4A2C2A);
+width: 80%;
+margin: 30px auto;
+border-radius: 10px;">
+
+
+<section id="signature-cafe" class="signature-cafe">
+    
+<h2>Harga <span>Kopi (Signature Series Menu)</span></h2>
+<p>Daftar harga kopi dari menu Signature Series dari Kios Kopi</p>
+
+<table class="kioskopi-table">
+  <thead>
+      <tr>
+          <th>No</th>
+          <th>Nama Kopi (Signature Series)</th>
+          <th>Harga Satuan Kopi (Signature Series)</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>JAVA MAGIC</td>
+      <td>Rp.50.000,00. -</td>
+  </tr>
+  <tr>
+      <td>2</td>
+      <td>CREAMY DREAMY</td>
+      <td>Rp.50.000,00, -</td>
+  </tr>
+  <tr>
+      <td>3</td>
+      <td>STARBERRY BLISS</td>
+      <td>Rp.50.000,00, -</td>
+  </tr>
+ 
+     
+  </tbody>
+</table>
+
+</section>
+
+
+<hr class="coffee-separator" style=" border: none;
+height: 4px;
+background: linear-gradient(to right, #8B5E3B, #6F4E37, #4A2C2A);
+width: 80%;
+margin: 30px auto;
+border-radius: 10px;">
+
+<section id="cup-cafe" class="cup-cafe">
+    
+<h2>Harga <span>Kopi (Cup Series)</span></h2>
+<p>Daftar harga kopi siap seduh dengan cangkir dari Kios Kopi</p>
+
+<table class="kioskopi-table">
+  <thead>
+      <tr>
+          <th>No</th>
+          <th>Nama Kopi (Cup Series)</th>
+          <th>Harga Satuan Kopi (Cup Series)</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Kopi Arabika Banjarnegara (Cup Series)</td>
+      <td>Rp.50.000,00, -</td>
+  </tr>
+  <tr>
+      <td>2</td>
+      <td>Kopi Robusta Gunung Slamet (Cup Series)</td>
+      <td>Rp.50.000,00, -</td>
+  </tr>
+  <tr>
+      <td>3</td>
+      <td>Kopi Arabika Puntang Black Honey (Cup Series)</td>
+      <td>Rp.100.000,00, -</td>
+  </tr>
+  <tr>
+      <td>4</td>
+      <td>Kopi Arabika Temanggung (Cup Series)</td>
+      <td>Rp.100.000,00, -</td>
+  </tr>
+   <tr>
+      <td>5</td>
+      <td>Kopi Arabika Gayo Wihe (Cup Series)</td>
+      <td>Rp.100.000,00, -</td>
+  </tr>
+  </tbody>
+</table>
+
+</section>
+
+<!-- Menu Section -->
+<section class="menu" id="menu">
+    <div class="menu-container">
+        <div class="menu-item">
+            <h3>Galeri Kopi</h3>
+            <a href="galerikopi.html" class="menu-button">Galeri Kopi KIOS KOPI</a>
+        </div>
+        <div class="menu-item">
+            <h3>KIOS KOPI Interface</h3>
+            <a href="index.html" class="menu-button">KIOS KOPI</a>
+        </div>
+        <div class="menu-item">
+            <h3>Menu Kopi</h3>
+            <a href="menukopi.html" class="menu-button">Menu Kopi KIOS KOPI</a>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        gsap.to("section", { opacity: 1, y: 0, duration: 1, stagger: 0.3 });
+        gsap.to("h2", { opacity: 1, y: 0, duration: 1, delay: 0.3 });
+        gsap.to("p", { opacity: 1, y: 0, duration: 1, delay: 0.6 });
+        gsap.to(".kioskopi-table", { opacity: 1, x: 0, duration: 1, delay: 1 });
+    });
+</script>
+
+    </center>
+</body>
+</html>

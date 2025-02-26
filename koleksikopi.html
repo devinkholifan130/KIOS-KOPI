@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koleksi Kopi Kios Kopi</title>
+    <link rel="website icon" href="Kios Kopi Logo.png">
+      <!-- Lightbox2 CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+
+    <style>
+        body {
+    font-family: "Poppins", sans-serif;
+    color: white;
+    background-color: #f8f5f1;
+    margin: 0;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    background: url('Coffee Shop Wallpaper 6.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Overlay Gelap */
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+/* Animasi Parallax */
+@keyframes parallaxBg {
+    0% {
+        background-position: center center;
+    }
+    100% {
+        background-position: center 10%;
+    }
+}
+
+.hero {
+    animation: parallaxBg 10s linear infinite alternate;
+}
+
+/* Animasi Fade-in dan Zoom */
+.hero .content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    animation: fadeZoomIn 1.5s ease-out forwards;
+}
+
+@keyframes fadeZoomIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Animasi Teks */
+.hero .content h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    line-height: 1.2;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.5s ease-out 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.hero .content h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.hero .content h1 span {
+    color: #f4b183;
+}
+
+.hero .content p {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+
+/* Gallery Section */
+.coffee-bean {
+    padding: 5rem 2rem;
+    text-align: center;
+    background-color: #F3E5D8;
+}
+
+.coffee-bean h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #3E2723;
+    font-weight: bold;
+}
+
+.coffee-bean h2 span {
+    color: #A67B5B;
+}
+
+/* Gallery Layout */
+.gallery-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+}
+
+/* Card Styling */
+.card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    width: 100%;
+    max-width: 320px;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Image Styling */
+.product-img {
+    width: 100%;
+    height: 220px;
+    object-fit: contain; /* Menampilkan seluruh gambar tanpa crop */
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f8f8; /* Tambahkan background untuk ruang kosong */
+}
+
+
+.card:hover .product-img {
+    transform: scale(1.05);
+}
+
+/* Coffee Item Styling */
+.coffee-item {
+    text-align: center;
+    padding: 15px;
+    border-top: 2px solid #A67B5B;
+    margin-top: 10px;
+}
+
+.coffee-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #3E2723;
+}
+
+
+.coffee-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ca866d;
+}
+
+.coffee-price del {
+    color: #D84315;
+    font-size: 1rem;
+}
+
+/* Button Styles */
+.cart-btn {
+    display: inline-block;
+    background: #A67B5B;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+.cart-btn:hover {
+    background: #8D6E63;
+}
+
+
+
+/* Gallery 2 Section */
+.coffee-powder {
+    padding: 5rem 2rem;
+    text-align: center;
+    background-color: #8d4e12;
+}
+
+.coffee-powder h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #fffdfd;
+    font-weight: bold;
+}
+
+.coffee-powder h2 span {
+    color: #f1e5dc;
+}
+
+/* Gallery Layout */
+.gallery-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+}
+
+/* Card Styling */
+.card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    width: 100%;
+    max-width: 320px;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Image Styling */
+.product-img {
+    width: 100%;
+    height: 220px;
+    object-fit: contain; /* Menampilkan seluruh gambar tanpa crop */
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f8f8; /* Tambahkan background untuk ruang kosong */
+}
+
+.card:hover .product-img {
+    transform: scale(1.05);
+}
+
+/* Coffee Item Styling */
+.coffee-item {
+    text-align: center;
+    padding: 15px;
+    border-top: 2px solid #A67B5B;
+    margin-top: 10px;
+}
+
+.coffee-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #3E2723;
+}
+
+
+.coffee-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ca866d;
+}
+
+.coffee-price del {
+    color: #D84315;
+    font-size: 1rem;
+}
+
+/* Button Styles */
+.cart-btn {
+    display: inline-block;
+    background: #A67B5B;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+.cart-btn:hover {
+    background: #8D6E63;
+}
+
+
+/* Gallery Section */
+.signature-cafe {
+    padding: 5rem 2rem;
+    text-align: center;
+    background-color: #503b27;
+}
+
+.signature-cafe h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #fffefe;
+    font-weight: bold;
+}
+
+.signature-cafe h2 span {
+    color: #fdbd8c;
+}
+
+.signature-cafe-description {
+    font-size: 1.2rem;
+    color: #ddafa2;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Gallery Layout */
+.gallery-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+}
+
+/* Card Styling */
+.card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    width: 100%;
+    max-width: 320px;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Image Styling */
+.product-img {
+    width: 100%;
+    height: 220px;
+    object-fit: contain; /* Menampilkan seluruh gambar tanpa crop */
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f8f8; /* Tambahkan background untuk ruang kosong */
+}
+
+
+.card:hover .product-img {
+    transform: scale(1.05);
+}
+
+/* Coffee Item Styling */
+.coffee-item {
+    text-align: center;
+    padding: 15px;
+    border-top: 2px solid #A67B5B;
+    margin-top: 10px;
+}
+
+.coffee-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #3E2723;
+}
+
+
+.coffee-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ca866d;
+}
+
+.coffee-price del {
+    color: #D84315;
+    font-size: 1rem;
+}
+
+/* Button Styles */
+.cart-btn {
+    display: inline-block;
+    background: #A67B5B;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+.cart-btn:hover {
+    background: #8D6E63;
+}
+
+
+
+/* Gallery 2 Section */
+.cup-cafe {
+    padding: 5rem 2rem;
+    text-align: center;
+    background-color: #a06125;
+}
+
+.cup-cafe h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #fffdfd;
+    font-weight: bold;
+}
+
+.cup-cafe h2 span {
+    color: #ffbd8b;
+}
+
+.cup-cafe-description {
+    font-size: 1.2rem;
+    color: #fff5f3;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Gallery Layout */
+.gallery-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+}
+
+/* Card Styling */
+.card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    width: 100%;
+    max-width: 320px;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Image Styling */
+.product-img {
+    width: 100%;
+    height: 220px;
+    object-fit: contain; /* Menampilkan seluruh gambar tanpa crop */
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f8f8; /* Tambahkan background untuk ruang kosong */
+}
+
+.card:hover .product-img {
+    transform: scale(1.05);
+}
+
+/* Coffee Item Styling */
+.coffee-item {
+    text-align: center;
+    padding: 15px;
+    border-top: 2px solid #A67B5B;
+    margin-top: 10px;
+}
+
+.coffee-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #3E2723;
+}
+
+
+.coffee-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ca866d;
+}
+
+.coffee-price del {
+    color: #D84315;
+    font-size: 1rem;
+}
+
+/* Button Styles */
+.cart-btn {
+    display: inline-block;
+    background: #A67B5B;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+.cart-btn:hover {
+    background: #8D6E63;
+}
+
+
+
+  /* General Footer Styles */
+  .footer {
+    background-color: #f8f9fa;
+    color: #212529;
+    padding: 2rem 1rem;
+    font-family: Arial, sans-serif;
+  }
+  
+  .footer .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  
+  .footer-section {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .footer-title {
+    font-size: 1.8rem; /* Ukuran teks lebih besar */
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 1rem;
+  }
+  
+  .footer-title span {
+    color: #f4b183;
+  }
+  
+  .footer-description {
+    font-size: 1.2rem; /* Ukuran teks lebih besar */
+    color: #555;
+    margin-bottom: 1rem;
+  }
+  
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-links li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-links a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 1.2rem; /* Ukuran teks lebih besar */
+  }
+  
+  .footer-links a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Payment Methods */
+  .payment-methods {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .payment-methods img {
+    width: 50px; /* Sedikit diperbesar untuk mencocokkan teks */
+    height: auto;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .footer .container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  /* Menu Section Styling */
+.menu {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.menu-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.menu-item {
+    text-align: center;
+}
+
+.menu-item h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #8B5E2E; /* Warna coklat sesuai tema */
+    margin-bottom: 10px;
+}
+
+.menu-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #8B5E2E; /* Warna coklat sesuai tema */
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+
+.menu-button:hover {
+    background-color: #6A4823; /* Warna lebih gelap saat hover */
+}
+
+  
+  /* Lightbox Container */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Lightbox Image */
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    transition: transform 0.3s;
+    object-fit: contain;
+}
+
+/* Close Button */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+}
+
+/* Navigation Controls */
+.controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.controls span {
+    cursor: pointer;
+    color: white;
+    font-size: 2rem;
+    padding: 20px;
+}
+
+/* Zoom Controls */
+.zoom-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.zoom-controls button {
+    font-size: 1rem;
+    padding: 10px;
+    cursor: pointer;
+}
+  
+  /* Media Queries */
+  
+
+  
+  
+  /* Tablet */
+  @media (max-width: 750px) {
+    html {
+      font-size: 62.5%;
+    }
+  
+    #menu {
+      display: inline-block;
+    }
+  
+    .navbar .navbar-nav {
+      position: absolute;
+      top: 100%;
+      right: -100%;
+      background-color: #fff;
+      width: 30rem;
+      height: 100vh;
+      transition: 0.3s;
+    }
+  
+    .navbar .navbar-nav.active {
+      right: 0;
+    }
+  
+    .navbar .navbar-nav a {
+      color: var(--bg);
+      display: block;
+      margin: 1.5rem;
+      padding: 0.5rem;
+      font-size: 2rem;
+    }
+  }
+  
+  
+  
+  /* Mobile Phone */
+  @media (max-width: 450px) {
+    html {
+      font-size: 55%;
+    }
+  }
+
+  
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+
+
+    
+    <!-- Feather Icons Script -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+
+</head>
+<body>
+  <center>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <main class="content">
+            <h1>Koleksi Kopi <span>KIOS KOPI</span></h1>
+            <p>Koleksi ini menampilkan berbagai daftar kopi yanng tersedia dari KIOS KOPI</p>
+        </main>
+    </section>
+
+
+
+<!-- Coffee Beans Gallery -->
+<section id="coffee-bean" class="coffee-bean">
+    <h2>Galeri <span>Biji Kopi</span></h2>
+    <div class="gallery-row">
+        <!-- Individual Cards -->
+
+        <div class="card"  onclick="openLightbox(0)">
+          <img src="KiosKopi Arabica Enrekang Coffee.jpg" alt="Arabica Coffee" class="product-img">
+          <div class="coffee-item">
+              <p class="coffee-title">Arabika Enrekang</p>
+          </div>
+      </div>
+
+      <div class="card" onclick="openLightbox(1)">
+        <img src="KiosKopi Arabica Banjarnegara Coffee.jpg" alt="Arabica Coffee" class="product-img">
+        <div class="coffee-item">
+            <p class="coffee-title">Arabika Banjarnegara</p>
+        </div>
+    </div>
+
+    <div class="card"  onclick="openLightbox(2)">
+      <img src="KiosKopi Arabica Papua Moenemani Coffee.jpg" alt="Arabica Coffee" class="product-img">
+      <div class="coffee-item">
+          <p class="coffee-title">Arabika Papua Moenemani</p>
+      </div>
+  </div>
+
+  <div class="card" onclick="openLightbox(3)">
+    <img src="KiosKopi Arabica Puntang Coffee.jpg" alt="Arabica Coffee" class="product-img">
+    <div class="coffee-item">
+        <p class="coffee-title">Arabika Puntang</p>
+    </div>
+</div>
+
+<div class="card" onclick="openLightbox(4)">
+  <img src="KiosKopi Arabica Bali Kintamani Coffee.jpg" alt="Arabica Coffee" class="product-img">
+  <div class="coffee-item">
+      <p class="coffee-title">Arabika Bali Kintamani</p>
+  </div>
+</div>
+
+<div class="card"  onclick="openLightbox(5)">
+<img src="Biji Kopi Arabika Bali.jpg" alt="Arabica Coffee" class="product-img">
+<div class="coffee-item">
+    <p class="coffee-title">Arabika Bali</p>
+</div>
+</div>
+
+
+
+<div class="card"  onclick="openLightbox(6)">
+<img src="Biji Kopi Arabika Gayo Aceh.jpg" alt="Arabica Coffee" class="product-img">
+<div class="coffee-item">
+    <p class="coffee-title">Arabika Gayo Aceh</p>
+</div>
+</div>
+
+
+<div class="card"  onclick="openLightbox(7)">
+<img src="Biji Kopi Arabika Kerinci.jpg" alt="Arabica Coffee" class="product-img">
+<div class="coffee-item">
+    <p class="coffee-title">Arabika Kerinci</p>
+</div>
+</div>
+
+
+<div class="card"  onclick="openLightbox(8)">
+<img src="Biji Kopi Arabika Dolok Sanggul.jpg" alt="Arabica Coffee" class="product-img">
+<div class="coffee-item">
+    <p class="coffee-title">Arabika Dolok Sanggul</p>
+</div>
+</div>
+
+
+<div class="card"  onclick="openLightbox(9)">
+<img src="Biji Kopi Arabika Toraja.jpg" alt="Arabica Coffee" class="product-img">
+<div class="coffee-item">
+    <p class="coffee-title">Arabika Toraja</p>
+</div>
+</div>
+
+
+<div class="card"  onclick="openLightbox(10)">
+<img src="Biji Kopi Arabika Mandailing.jpg" alt="Arabica Coffee" class="product-img">
+<div class="coffee-item">
+    <p class="coffee-title">Arabika Mandailing</p>
+</div>
+</div>
+
+
+<div class="card"  onclick="openLightbox(11)">
+<img src="Biji Kopi Arabika Temanggung.jpg" alt="Arabica Coffee" class="product-img">
+<div class="coffee-item">
+    <p class="coffee-title">Arabika Temanggung</p>
+</div>
+</div>
+
+
+<div class="card"  onclick="openLightbox(11)">
+<img src="Biji Kopi Arabika Halu Banana.jpg" alt="Arabica Coffee" class="product-img">
+<div class="coffee-item">
+    <p class="coffee-title">Arabika Halu Banana </p>
+</div>
+</div>
+
+
+<div class="card"  onclick="openLightbox(12)">
+<img src="Biji Kopi Robusta Temanggung.jpg" alt="Robusta Coffee" class="product-img">
+<div class="coffee-item">
+    <p class="coffee-title">Robusta Temanggung </p>
+</div>
+</div>
+
+
+<div class="card"  onclick="openLightbox(13)">
+<img src="Biji Kopi Robusta Banjarnegara.jpg" alt="Robusta Coffee" class="product-img">
+<div class="coffee-item">
+    <p class="coffee-title">Robusta Banjarnegara </p>
+</div>
+</div>
+
+<div class="card"   onclick="openLightbox(14)">
+<img src="Biji Kopi Robusta Toraja.jpg" alt="Robusta Coffee" class="product-img">
+<div class="coffee-item">
+    <p class="coffee-title">Robusta Toraja</p>
+</div>
+</div>
+
+
+
+<div class="card"  onclick="openLightbox(15)">
+    <img src="Biji Kopi Arabika Banjarnegara (Ver.2).jpg" alt="Arabica Coffee" class="product-img">
+    <div class="coffee-item">
+        <p class="coffee-title">Arabika Banjarnegara (Ver.2)</p>
+    </div>
+  </div>
+  
+  <div class="card"  onclick="openLightbox(16)">
+  <img src="Biji Kopi Arabika Dolok Sanggul (Ver.2).jpg" alt="Arabica Coffee" class="product-img">
+  <div class="coffee-item">
+      <p class="coffee-title">Arabika Dolok Sanggul (Ver.2)</p>
+  </div>
+  </div>
+  
+  <div class="card"  onclick="openLightbox(17)">
+  <img src="Biji Kopi Arabika Toraja (Ver.2).jpg" alt="Arabica Coffee" class="product-img">
+  <div class="coffee-item">
+    <p class="coffee-title">Arabika Toraja (Ver.2)</p>
+  </div>
+  </div>
+  
+  <div class="card" onclick="openLightbox(18)">
+  <img src="Biji Kopi Arabika Papua Moenemani (Ver.2).jpg" alt="Arabica Coffee" class="product-img">
+  <div class="coffee-item">
+  <p class="coffee-title">Arabika Papua Moenemani (Ver.2)</p>
+  </div>
+  </div>
+  
+  <div class="card"  onclick="openLightbox(19)">
+  <img src="Biji Kopi Arabika Temanggung (Ver.2).jpg" alt="Arabica Coffee" class="product-img">
+  <div class="coffee-item">
+  <p class="coffee-title">Arabika Temanggung (Ver.2)</p>
+  </div>
+  </div>
+  
+  
+  
+  <div class="card"  onclick="openLightbox(20)">
+  <img src="Biji  Kopi Arabika Halu Banana (Ver.2).jpg" alt="Arabica Coffee" class="product-img">
+  <div class="coffee-item">
+  <p class="coffee-title">Arabika Halu Banana (Ver.2)</p>
+  </div>
+  </div>
+  
+  
+  <div class="card"  onclick="openLightbox(20)">
+  <img src="Biji Kopi Bubuk Robusta Bali (Ver.2).jpg" alt="Robusta Coffee" class="product-img">
+  <div class="coffee-item">
+  <p class="coffee-title">Robusta Bali (Ver.2)</p>
+  </div>
+  </div>
+  
+  
+  <div class="card"   onclick="openLightbox(21)">
+  <img src="Biji Kopi Robusta Lintong (Ver.2).jpg" alt="Robusta Coffee" class="product-img">
+  <div class="coffee-item">
+  <p class="coffee-title">Robusta Lintong (Ver.2)</p>
+  </div>
+  </div>
+  
+  
+  <div class="card"  onclick="openLightbox(22)">
+  <img src="Biji Kopi Robusta Banjarnegara (Ver.2).jpg" alt="Robusta Coffee" class="product-img">
+  <div class="coffee-item">
+  <p class="coffee-title">Robusta Banjarnegara (Ver.2)</p>
+  </div>
+  </div>
+  
+  
+  
+  <div class="card"  onclick="openLightbox(23)">
+    <img src="Biji Kopi Robusta Pagak Alam (Ver.2).jpg" alt="Robusta Coffee" class="product-img">
+    <div class="coffee-item">
+        <p class="coffee-title">Robusta Pagak Alam</p>
+    </div>
+    </div>
+    
+    
+    <div class="card"  onclick="openLightbox(24)">
+    <img src="Biji Kopi Arabika Bali Kintamani (Ver.2).jpg" alt="Arabica Coffee" class="product-img">
+    <div class="coffee-item">
+        <p class="coffee-title">Arabika Bali Kintamani (Ver.2)</p>
+    </div>
+    </div>
+    
+    
+    <div class="card"  onclick="openLightbox(25)">
+    <img src="Biji Kopi Arabika Flores (Ver.2).jpg" alt="Arabika Coffee" class="product-img">
+    <div class="coffee-item">
+        <p class="coffee-title">Arabika Flores</p>
+    </div>
+    </div>
+  
+
+
+</section>
+
+<hr class="coffee-separator" style=" border: none;
+height: 4px;
+background: linear-gradient(to right, #8B5E3B, #6F4E37, #4A2C2A);
+width: 80%;
+margin: 30px auto;
+border-radius: 10px;">
+
+<!-- Coffee Beans Gallery -->
+<section id="coffee-powder" class="coffee-powder">
+  <h2>Galeri <span>Kopi Bubuk</span></h2>
+  <div class="gallery-row">
+      <!-- Individual Cards -->
+
+      <div class="card"  onclick="openLightbox(26)">
+        <img src="KiosKopi Arabica Garut Coffee.jpg" alt="Arabica Coffee" class="product-img">
+        <div class="coffee-item">
+            <p class="coffee-title">Arabika Garut</p>
+        </div>
+    </div>
+
+
+<div class="card"  onclick="openLightbox(27)">
+<img src="Kopi Bubuk Robusta Toraja.jpg" alt="Robusta Coffee" class="product-img">
+<div class="coffee-item">
+  <p class="coffee-title">Robusta Toraja</p>
+</div>
+</div>
+
+
+
+<div class="card"  onclick="openLightbox(28)">
+<img src="Kopi Bubuk Arabika Wanayasa.jpg" alt="Arabika Coffee" class="product-img">
+<div class="coffee-item">
+  <p class="coffee-title">Arabika Wanayasa</p>
+</div>
+</div>
+
+
+</section>
+
+
+<hr class="coffee-separator" style=" border: none;
+height: 4px;
+background: linear-gradient(to right, #8B5E3B, #6F4E37, #4A2C2A);
+width: 80%;
+margin: 30px auto;
+border-radius: 10px;">
+
+
+<!-- Coffee Beans Gallery -->
+<section id="signature-cafe" class="signature-cafe">
+  <h2>Menu Kopi <span>(Signature Series)</span></h2>
+  <div class="gallery-row">
+      <!-- Individual Cards -->
+
+      <div class="card"  onclick="openLightbox(29)">
+          <img src="JAVA MAGIC.jpg" alt="Signature Cafe" class="product-img">
+          <div class="coffee-item">
+              <p class="coffee-title">JAVA MAGIC</p>
+          </div>
+      </div>
+
+      <div class="card"  onclick="openLightbox(30)">
+        <img src="CREAMY DREAMY.jpg" alt="Signature Cafe" class="product-img">
+        <div class="coffee-item">
+            <p class="coffee-title">CREAMY DREAMY</p>
+        </div>
+    </div>
+
+    <div class="card" onclick="openLightbox(31)">
+      <img src="STARBERRY BLISS.jpg" alt="Signature Cafe" class="product-img">
+      <div class="coffee-item">
+          <p class="coffee-title">STARBERRY BLISS</p>
+      </div>
+  </div>
+
+</section>
+
+<hr class="coffee-separator" style=" border: none;
+height: 4px;
+background: linear-gradient(to right, #8B5E3B, #6F4E37, #4A2C2A);
+width: 80%;
+margin: 30px auto;
+border-radius: 10px;">
+
+<!-- Coffee Beans Gallery -->
+<section id="cup-cafe" class="cup-cafe">
+<h2>Menu Kopi <span>(Cup Series)</span></h2>
+<div class="gallery-row">
+    <!-- Individual Cards -->
+
+    <div class="card" onclick="openLightbox(32)">
+      <img src="Kopi Arabika Banjarnegara (Cup).jpg" alt="Arabica Cafe Cup" class="product-img">
+        <div class="coffee-item">
+            <p class="coffee-title">Kopi (Cup Series) Arabika Banjarnegara</p>
+        </div>
+    </div>
+
+    <div class="card"onclick="openLightbox(33)">
+      <img src="Kopi Robusta Gunung Selamet (Cup).jpg" alt="Robusta Cafe Cup" class="product-img">
+      <div class="coffee-item">
+          <p class="coffee-title">Kopi (Cup Series) Robusta Gunung Selamet</p>
+      </div>
+  </div>
+
+  <div class="card" onclick="openLightbox(34)">
+    <img src="Kopi Arabika Puntang (Cup).jpg" alt="Arabica Cafe Cup" class="product-img">
+    <div class="coffee-item">
+        <p class="coffee-title">Kopi (Cup Series) Arabika Puntang Black Honey</p>
+    </div>
+</div>
+
+<div class="card" onclick="openLightbox(35)">
+  <img src="Kopi Arabika Temanggung (Cup).jpg" alt="Arabica Cafe Cup" class="product-img">
+  <div class="coffee-item">
+      <p class="coffee-title">Kopi (Cup Series) Arabika Temanggung</p>
+  </div>
+</div>
+
+<div class="card" onclick="openLightbox(36)">
+  <img src="Kopi Arabika Gayo Wihe (Cup).jpg" alt="Arabica Cafe Cup" class="product-img">
+<div class="coffee-item">
+    <p class="coffee-title">Kopi (Cup Series) Arabika Gayo Wihe</p>
+</div>
+</div>
+
+</section>
+
+<!-- Menu Section -->
+<section class="menu" id="menu">
+  <div class="menu-container">
+      <div class="menu-item">
+          <h3>Tampilan Awal KIOS KOPI</h3>
+          <a href="index.html" class="menu-button">KIOS KOPI</a>
+      </div>
+  </div>
+</section>
+
+ <!-- Footer -->
+ <footer class="footer">
+    <div class="container">
+      <div class="footer-section">
+        <h3 class="footer-title">Kios <span>Kopi</span></h3>
+        <p class="footer-description">
+          Menyajikan kopi terbaik dengan cita rasa khas. Nikmati pengalaman kopi terbaik hanya di Kios Kopi.
+        </p>
+        <div class="payment-methods">
+          <img src="Mandiri Icon.png" alt="Mandiri">
+          <img src="BRI Icon.png" alt="BRI">
+          <img src="BNI Icon.png" alt="BNI">
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4 class="footer-title">Informasi</h4>
+        <ul class="footer-links">
+          <li style="font-size: 20px;">Tentang Kami</li>
+          <li style="font-size: 20px;">Kontak</li>
+          <li style="font-size: 20px;">Karir</li>
+          <li style="font-size: 20px;">Lokasi</li>
+          <li style="font-size: 20px;">Kebijakan Privasi</li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4 class="footer-title">Bantuan</h4>
+        <ul class="footer-links">
+          <li style="font-size: 20px;">FAQ</a></li>
+          <li style="font-size: 20px;">Dukungan Pelanggan</a></li>
+          <li style="font-size: 20px;">Pengembalian Produk</a></li>
+          <li style="font-size: 20px;">Syarat dan Ketentuan</a></li>
+          <li style="font-size: 20px;">Laporkan Masalah</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Lightbox2 JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    let images = [];
+    let cards = document.querySelectorAll(".card img");
+
+    cards.forEach((img, index) => {
+        images.push(img.src);
+        img.setAttribute("onclick", `openLightbox(${index})`);
+    });
+
+    let currentIndex = 0;
+    let zoomLevel = 1;
+
+    function openLightbox(index) {
+        currentIndex = index;
+        updateLightbox();
+        document.getElementById("lightbox").style.display = "flex";
+    }
+
+    function closeLightbox() {
+        document.getElementById("lightbox").style.display = "none";
+        resetZoom();
+    }
+
+    function nextImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        updateLightbox();
+    }
+
+    function prevImage() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateLightbox();
+    }
+
+    function updateLightbox() {
+        let lightboxImage = document.getElementById("lightboxImage");
+        lightboxImage.src = images[currentIndex];
+        lightboxImage.style.transform = `scale(${zoomLevel})`;
+    }
+
+    function zoomIn() {
+        zoomLevel += 0.2;
+        document.getElementById("lightboxImage").style.transform = `scale(${zoomLevel})`;
+    }
+
+    function zoomOut() {
+        if (zoomLevel > 0.5) {
+            zoomLevel -= 0.2;
+            document.getElementById("lightboxImage").style.transform = `scale(${zoomLevel})`;
+        }
+    }
+
+    function resetZoom() {
+        zoomLevel = 1;
+        document.getElementById("lightboxImage").style.transform = "scale(1)";
+    }
+
+    // Menjadikan fungsi dapat diakses global
+    window.openLightbox = openLightbox;
+    window.closeLightbox = closeLightbox;
+    window.nextImage = nextImage;
+    window.prevImage = prevImage;
+    window.zoomIn = zoomIn;
+    window.zoomOut = zoomOut;
+    window.resetZoom = resetZoom;
+});
+
+    </script>
+    
+</center>
+</body>
+</html>
