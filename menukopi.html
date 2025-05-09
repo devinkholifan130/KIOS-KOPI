@@ -1,0 +1,1007 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Menu Kopi KIOS KOPI</title>
+    <link rel="website icon" href="Kios Kopi Logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+   <style>
+     :root {
+            --coffee-dark: #2A1A1F;
+            --coffee-primary: #C4A484;
+            --coffee-light: #E6D5B8;
+            --coffee-accent: #9C6F44;
+            --coffee-bg: #0F0A0A;
+            --coffee-cream: #F5E9D9;
+            --white-coffee: #F8F4E9;
+            --white-chocolate: #F0E6D2;
+        }
+        
+        /* Modern Coffee Navbar */
+        .navbar {
+            background-color: var(--coffee-dark) !important;
+            padding: 0.8rem 1rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            padding: 0.5rem 1rem;
+            background-color: rgba(42, 26, 31, 0.95) !important;
+            backdrop-filter: blur(10px);
+        }
+        
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--coffee-primary) !important;
+            display: flex;
+            align-items: center;
+        }
+        
+        .navbar-brand span {
+            color: var(--coffee-light);
+        }
+        
+        .navbar-brand img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .nav-link {
+            color: var(--coffee-light) !important;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem !important;
+            margin: 0 0.2rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--coffee-primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--coffee-primary) !important;
+        }
+        
+        .nav-link:hover::before {
+            width: 100%;
+        }
+        
+        .nav-link.active {
+            color: var(--coffee-primary) !important;
+        }
+        
+        .nav-link.active::before {
+            width: 100%;
+        }
+        
+        .navbar-toggler {
+            border: 1px solid var(--coffee-primary) !important;
+            padding: 0.4rem 0.7rem;
+        }
+        
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28196, 164, 132, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .navbar-brand {
+                font-size: 1.6rem;
+            }
+            
+            .nav-link {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar-collapse {
+                background: rgba(42, 26, 31, 0.98);
+                padding: 1rem;
+                margin-top: 0.5rem;
+                border-radius: 5px;
+            }
+            
+            .nav-link {
+                padding: 0.8rem 0 !important;
+                margin: 0.3rem 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .navbar-brand {
+                font-size: 1.4rem;
+            }
+        }
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    background: url('Coffee Shop Wallpaper 3.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero .content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    animation: fadeInUp 1.5s ease-out forwards;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    line-height: 1.2;
+    letter-spacing: 2px;
+}
+
+.hero h1 span {
+    color: #f4b183; /* Warm Coffee Brown */
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.5s ease-out 0.5s forwards;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Menu Section */
+.menu {
+    text-align: center;
+    padding: 60px 0;
+    background: #f9f6f2;
+}
+
+.menu-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+.menu-item {
+    text-align: center;
+    max-width: 300px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.menu-item:hover {
+    transform: scale(1.05);
+}
+
+.menu-item h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #8B5E2E; /* Coffee Brown */
+    margin-bottom: 10px;
+}
+
+.menu-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #8b4414;
+    color: #FFF8E7;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.menu-button:hover {
+    background-color: #6A4823; /* Darker Coffee Brown */
+}
+
+/* Price Section */
+.price-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 60px 0;
+    background: #fff;
+}
+
+.coffee-price {
+    background: #f9f6f2;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.coffee-price:hover {
+    transform: translateY(-10px);
+}
+
+.coffee-price h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #8B5E2E;
+    margin-bottom: 10px;
+}
+
+.price-description {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.price-list {
+    list-style: none;
+    padding: 0;
+}
+
+.price-list li {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    color: #333;
+    margin: 10px 0;
+}
+
+.price-list li span:last-child {
+    font-weight: bold;
+    color: #8B5E2E;
+}
+
+/* Font Awesome Icons */
+.menu-item i,
+.coffee-price i {
+    font-size: 2rem;
+    color: #8B5E2E;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Media Queries */
+@media (max-width: 767.98px) {
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    .menu-item {
+        max-width: 100%;
+    }
+
+    .coffee-price {
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .hero p {
+        font-size: 1.3rem;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .hero h1 {
+        font-size: 4rem;
+    }
+
+    .hero p {
+        font-size: 1.4rem;
+    }
+}
+
+/* Gallery Section */
+.gallery {
+    padding: 5rem 2rem;
+    text-align: center;
+    background-color: var(--coffee-dark);
+}
+
+.gallery h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--white-chocolate);
+    font-weight: bold;
+    position: relative;
+}
+
+.gallery h2 span {
+    color: var(--coffee-light);
+}
+
+.gallery-description {
+    font-size: 1.2rem;
+    color: var(--white-chocolate);
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Gallery Layout */
+.gallery-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+}
+
+/* Card Styling */
+.card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    width: 100%;
+    max-width: 320px;
+    overflow: hidden;
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Styling */
+.product-img {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f8f8;
+}
+
+.card:hover .product-img {
+    transform: scale(1.05);
+}
+
+/* Coffee Item Styling */
+.coffee-item {
+    text-align: center;
+    padding: 15px;
+    border-top: 2px solid #A67B5B;
+    margin-top: 10px;
+}
+
+.coffee-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #3E2723;
+    margin-bottom: 0.5rem;
+}
+
+.coffee-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ca866d;
+}
+
+.coffee-price del {
+    color: #D84315;
+    font-size: 1rem;
+}
+
+/* Button Styles */
+.addToCart {
+    display: inline-block;
+    background: #A67B5B;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background 0.3s ease-in-out;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.addToCart:hover {
+    background: #8D6E63;
+}
+
+/* Font Awesome Icon Styling */
+.addToCart i {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+
+/* Media Queries */
+@media (max-width: 767.98px) {
+    .gallery h2 {
+        font-size: 2rem;
+    }
+
+    .gallery-description {
+        font-size: 1rem;
+    }
+
+    .coffee-title {
+        font-size: 1.2rem;
+    }
+
+    .coffee-price {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .gallery h2 {
+        font-size: 2.2rem;
+    }
+
+    .gallery-description {
+        font-size: 1.1rem;
+    }
+
+    .coffee-title {
+        font-size: 1.3rem;
+    }
+
+    .coffee-price {
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .gallery h2 {
+        font-size: 2.4rem;
+    }
+
+    .gallery-description {
+        font-size: 1.2rem;
+    }
+
+    .coffee-title {
+        font-size: 1.4rem;
+    }
+
+    .coffee-price {
+        font-size: 1.2rem;
+    }
+}
+
+/* Gallery 2 Section */
+.gallery2 {
+    padding: 5rem 2rem;
+    text-align: center;
+    background-color: #8d4e12;
+}
+
+.gallery2 h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #fffdfd;
+    font-weight: bold;
+}
+
+.gallery2 h2 span {
+    color: #f1e5dc;
+}
+
+.gallery2-description {
+    font-size: 1.2rem;
+    color: #fff5f3;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* General Footer Styles */
+.footer {
+    background-color: #2E1B0F; /* Warna coklat tua untuk tema kopi */
+    color: #fff;
+    padding: 3rem 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    text-align: left;
+}
+
+.footer-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #f4b183; /* Warna coklat muda */
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.footer-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: #f4b183;
+}
+
+.footer-description {
+    font-size: 1rem;
+    color: #ccc;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+/* Payment Methods */
+.payment-methods {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.payment-methods i {
+    font-size: 2rem;
+    color: #f4b183;
+    transition: transform 0.3s ease-in-out;
+}
+
+.payment-methods i:hover {
+    transform: scale(1.2);
+}
+
+/* Footer Links */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.7rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-links a {
+    color: #f4b183;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
+.footer-links i {
+    font-size: 1.2rem;
+    color: #f4b183;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-title {
+        font-size: 1.5rem;
+    }
+
+    .footer-description {
+        font-size: 0.9rem;
+    }
+
+    .footer-links li {
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .footer-title {
+        font-size: 1.6rem;
+    }
+
+    .footer-description {
+        font-size: 0.95rem;
+    }
+
+    .footer-links li {
+        font-size: 0.95rem;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .footer-title {
+        font-size: 1.7rem;
+    }
+
+    .footer-description {
+        font-size: 1rem;
+    }
+
+    .footer-links li {
+        font-size: 1rem;
+    }
+}
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <center>
+   <!-- Modern Coffee Navbar with Bootstrap -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="Kios Kopi Logo.png" alt="KIOS KOPI Logo">
+                Kios<span>Kopi</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#signature-series">Signature Series</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#cup-series">Cup Series</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <main class="content">
+            <h1>Menu Kopi <span>KIOS KOPI</span></h1>
+            <p>Menu ini menampilkan berbagai minuman kopi dari series terbaik</p>
+        </main>
+    </section>
+
+    <!-- Menu Section -->
+<section class="menu" id="menu">
+    <div class="menu-container">
+        <div class="menu-item">
+            <h3>Galeri Kopi</h3>
+            <a href="galerikopi.html" class="menu-button"><i class="fas fa-mug-hot"></i></a>
+        </div>
+    </div>
+  </section>
+
+<!-- Coffee Beans Gallery -->
+<section id="signature-series" class="gallery">
+    <h2>Menu <span>Kopi (Signature Series)</span></h2>
+    <p class="gallery-description">
+        Menu ini berisikan kopi dari Signature Series yang tersedia dari KIOS KOPI.
+    </p>
+    <div class="gallery-row">
+        <!-- Individual Cards -->
+
+        <div class="card">
+            <img src="JAVA MAGIC.jpg" alt="JAVA MAGIC" class="product-img">
+            <div class="coffee-item">
+                <p class="coffee-title">JAVA MAGIC</p>
+                <p class="coffee-price">Rp.50.000,00, - <del>Rp.100.000,00, -</del></p>
+                <a href="#" 
+                class="addToCart" 
+                data-name="JAVA MAGIC" 
+                data-price="50000" 
+                data-image="JAVA MAGIC.jpg"
+                style="cursor: pointer; font-size: 24px;">
+                <i class="fas fa-shopping-bag"></i>
+             </a>
+             
+              </div>
+        </div>
+
+        <div class="card">
+          <img src="CREAMY DREAMY.jpg" alt="CREAMY DREAMY" class="product-img">
+          <div class="coffee-item">
+              <p class="coffee-title">CREAMY DREAMY</p>
+              <p class="coffee-price">Rp.50.000,00, - <del>Rp.100.000,00, -</del></p>
+              <a href="#" 
+              class="addToCart" 
+              data-name="CREAMY DREAMY" 
+              data-price="50000" 
+              data-image="CREAMY DREAMY.jpg"
+              style="cursor: pointer; font-size: 24px;">
+              <i class="fas fa-shopping-bag"></i>
+           </a>         
+         </div>
+      </div>
+
+      <div class="card">
+        <img src="STARBERRY BLISS.jpg" alt="STARBERRY BLISS" class="product-img">
+        <div class="coffee-item">
+            <p class="coffee-title">STARBERRY BLISS</p>
+            <p class="coffee-price">Rp.50.000,00, - <del>Rp.100.000,00, -</del></p>
+            <a href="#" 
+            class="addToCart" 
+            data-name="STARBERRY BLISS" 
+            data-price="50000" 
+            data-image="STARBERRY BLISS.jpg"
+            style="cursor: pointer; font-size: 24px;">
+            <i class="fas fa-shopping-bag"></i>
+         </a>
+        </div>
+    </div>
+</section>
+
+<hr class="coffee-separator" style=" border: none;
+height: 4px;
+background: linear-gradient(to right, #8B5E3B, #6F4E37, #4A2C2A);
+width: 80%;
+margin: 30px auto;
+border-radius: 10px;">
+
+<!-- Coffee Beans Gallery -->
+<section id="cup-series" class="gallery2">
+    <h2>Menu <span>Kopi (Cup Series)</span></h2>
+  <p class="gallery2-description">
+      Galeri ini berisikan kopi dari Cup Series yang tersedia dari KIOS KOPI.
+  </p>
+  <div class="gallery-row">
+      <!-- Individual Cards -->
+
+      <div class="card">
+          <img src="Kopi Arabika Banjarnegara (Cup).jpg" alt="Arabica Coffee" class="product-img">
+          <div class="coffee-item">
+              <p class="coffee-title">Arabika Banjarnegara (Cup)</p>
+              <p class="coffee-price">Rp.50.000,00, - <del>Rp.100.000,00, -</del></p>
+              <a href="#" 
+              class="addToCart" 
+              data-name="Arabika Banjarnegara (Cup)" 
+              data-price="50000" 
+              data-image="Kopi Arabika Banjarnegara (Cup).jpg"
+              style="cursor: pointer; font-size: 24px;">
+              <i class="fas fa-shopping-bag"></i>
+           </a>
+          </div>
+      </div>
+
+<div class="card">
+<img src="Kopi Robusta Gunung Selamet (Cup).jpg" alt="Robusta Coffee" class="product-img">
+<div class="coffee-item">
+    <p class="coffee-title">Robusta Gunung Selamet (Cup)</p>
+    <p class="coffee-price">Rp.50.000,00, - <del>Rp.100.000,00, -</del></p>
+    <a href="#" 
+    class="addToCart" 
+    data-name="Robusta Gunung Selamet (Cup)" 
+    data-price="50000" 
+    data-image="Kopi Robusta Gunung Selamet (Cup).jpg"
+    style="cursor: pointer; font-size: 24px;">
+    <i class="fas fa-shopping-bag"></i>
+ </a>
+</div>
+</div>
+
+
+<div class="card">
+<img src="Kopi Arabika Puntang (Cup).jpg" alt="Arabika Coffee" class="product-img">
+<div class="coffee-item">
+    <p class="coffee-title">Arabika Puntang (Cup)</p>
+    <p class="coffee-price">Rp.50.000,00, - <del>Rp.100.000,00, -</del></p>
+    <a href="#" 
+    class="addToCart" 
+    data-name="Arabika Puntang (Cup)" 
+    data-price="50000" 
+    data-image="Kopi Arabika Puntang (Cup).jpg"
+    style="cursor: pointer; font-size: 24px;">
+    <i class="fas fa-shopping-bag"></i>
+ </a>
+</div>
+</div>
+
+
+<div class="card">
+    <img src="Kopi Arabika Temanggung (Cup).jpg" alt="Arabika Coffee" class="product-img">
+    <div class="coffee-item">
+        <p class="coffee-title">Arabika Temanggung (Cup)</p>
+        <p class="coffee-price">Rp.100.000,00, - <del>Rp.200.000,00, -</del></p>
+        <a href="#" 
+        class="addToCart" 
+        data-name="Arabika Temanggung (Cup)" 
+        data-price="50000" 
+        data-image="Kopi Arabika Temanggung (Cup).jpg"
+        style="cursor: pointer; font-size: 24px;">
+        <i class="fas fa-shopping-bag"></i>
+     </a>
+    </div>
+    </div>
+
+    
+<div class="card">
+    <img src="Kopi Arabika Gayo Wihe (Cup).jpg" alt="Arabika Coffee" class="product-img">
+    <div class="coffee-item">
+        <p class="coffee-title">Arabika Gayo Wihe (Cup)</p>
+        <p class="coffee-price">Rp.100.000,00, - <del>Rp.200.000,00, -</del></p>
+        <a href="#" 
+        class="addToCart" 
+        data-name="Arabika Gayo Wihe (Cup)" 
+        data-price="50000" 
+        data-image="Kopi Arabika Gayo Wihe (Cup).jpg"
+        style="cursor: pointer; font-size: 24px;">
+        <i class="fas fa-shopping-bag"></i>
+     </a>
+    </div>
+    </div>
+</section>
+
+<!-- Menu Section -->
+<section class="menu" id="menu">
+    <div class="menu-container">
+        <div class="menu-item">
+            <h3>KIOS KOPI</h3>
+            <a href="index.html" class="menu-button"><i class="fas fa-home"></i></a>
+        </div>
+    </div>
+  </section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <!-- About Section -->
+        <div class="footer-section">
+            <h3 class="footer-title">Kios <span>Kopi</span></h3>
+            <p class="footer-description">
+                Menyajikan kopi terbaik dengan cita rasa khas. Nikmati pengalaman kopi terbaik hanya di Kios Kopi.
+            </p>
+            <div class="payment-methods">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-paypal"></i>
+            </div>
+        </div>
+
+        <!-- Information Section -->
+        <div class="footer-section">
+            <h4 class="footer-title">Informasi</h4>
+            <ul class="footer-links">
+                <li><i class="fas fa-info-circle"></i> <a href="#">Tentang Kami</a></li>
+                <li><i class="fas fa-phone-alt"></i> <a href="#">Kontak</a></li>
+                <li><i class="fas fa-briefcase"></i> <a href="#">Karir</a></li>
+                <li><i class="fas fa-map-marker-alt"></i> <a href="#">Lokasi</a></li>
+                <li><i class="fas fa-shield-alt"></i> <a href="#">Kebijakan Privasi</a></li>
+            </ul>
+        </div>
+
+        <!-- Help Section -->
+        <div class="footer-section">
+            <h4 class="footer-title">Bantuan</h4>
+            <ul class="footer-links">
+                <li><i class="fas fa-question-circle"></i> <a href="#">FAQ</a></li>
+                <li><i class="fas fa-headset"></i> <a href="#">Dukungan Pelanggan</a></li>
+                <li><i class="fas fa-undo-alt"></i> <a href="#">Pengembalian Produk</a></li>
+                <li><i class="fas fa-file-contract"></i> <a href="#">Syarat dan Ketentuan</a></li>
+                <li><i class="fas fa-exclamation-triangle"></i> <a href="#">Laporkan Masalah</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const cartButtons = document.querySelectorAll(".addToCart");
+
+        cartButtons.forEach(button => {
+            button.addEventListener("click", function (event) {
+                event.preventDefault(); // Mencegah navigasi default
+                
+                const name = this.getAttribute("data-name");
+                const price = parseInt(this.getAttribute("data-price"));
+                const image = this.getAttribute("data-image");
+
+                let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                
+                // Periksa apakah produk sudah ada di keranjang
+                let existingProduct = cart.find(item => item.name === name);
+
+                if (existingProduct) {
+                    existingProduct.quantity += 1;
+                } else {
+                    cart.push({ name, price, image, quantity: 1 });
+                }
+
+                // Simpan kembali ke localStorage
+                localStorage.setItem("cart", JSON.stringify(cart));
+
+                alert(name + " telah ditambahkan ke keranjang!");
+
+                // Redirect ke halaman keranjang
+                window.location.href = "keranjangcafe.html";
+            });
+        });
+    });
+</script>
+</center>
+</body>
+</html>

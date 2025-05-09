@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KIOS KOPI - Kopi Checkout</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        .checkout-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .success-icon {
+            font-size: 5rem;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+
+        .success-message {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+
+        .checkout-details {
+            margin-bottom: 30px;
+        }
+
+        .checkout-details p {
+            font-size: 1rem;
+            margin: 5px 0;
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+        }
+
+        .btn-continue {
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+        }
+
+        .btn-continue:hover {
+            background-color: #0b5ed7;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .checkout-container {
+                padding: 15px;
+            }
+
+            .success-icon {
+                font-size: 4rem;
+            }
+
+            .success-message {
+                font-size: 1.2rem;
+            }
+
+            .checkout-details p {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .checkout-container {
+                margin: 30px auto;
+                padding: 10px;
+            }
+
+            .success-icon {
+                font-size: 3rem;
+            }
+
+            .success-message {
+                font-size: 1rem;
+            }
+
+            .checkout-details p {
+                font-size: 0.8rem;
+            }
+
+            .btn-whatsapp, .btn-continue {
+                font-size: 0.9rem;
+                padding: 8px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="checkout-container text-center">
+        <!-- Success Icon and Message -->
+        <i class="fas fa-check-circle success-icon"></i>
+        <p class="success-message">Checkout Berhasil!</p>
+        <p>Terima kasih telah berbelanja di KIOS KOPI.</p>
+
+        <!-- Checkout Details -->
+        <div class="checkout-details">
+            <p><strong>Nama Produk:</strong> Arabika Enrekang</p>
+            <p><strong>Jumlah:</strong> 1 KG</p>
+            <p><strong>Total Harga:</strong> Rp 50.000,00</p>
+        </div>
+
+        <!-- Buttons -->
+        <div class="d-flex justify-content-center gap-3 mb-3">
+            <a href="https://wa.me/6281213911456?text=Halo, saya ingin konfirmasi pesanan." target="_blank" class="btn btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> Masuk ke WhatsApp
+            </a>
+            <a href="galerikopi.html" class="btn btn-continue">
+                <i class="fas fa-shopping-cart"></i> Lanjutkan Belanja
+            </a>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Fungsi untuk memuat data keranjang dari localStorage
+            function loadCheckoutDetails() {
+                let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                let checkoutDetails = document.querySelector(".checkout-details");
+                let totalHarga = 0;
+    
+                // Kosongkan konten sebelumnya
+                checkoutDetails.innerHTML = "";
+    
+                // Loop melalui setiap item di keranjang
+                cart.forEach((product) => {
+                    totalHarga += product.price * product.quantity;
+    
+                    // Tambahkan detail produk ke halaman checkout
+                    checkoutDetails.innerHTML += `
+                        <p><strong>Nama Produk:</strong> ${product.name}</p>
+                        <p><strong>Jumlah:</strong> ${product.quantity} KG</p>
+                        <p><strong>Harga Satuan:</strong> Rp ${product.price.toLocaleString()}</p>
+                        <p><strong>Subtotal:</strong> Rp ${(product.price * product.quantity).toLocaleString()}</p>
+                        <hr>
+                    `;
+                });
+    
+                // Tambahkan total harga keseluruhan
+                checkoutDetails.innerHTML += `
+                    <p class="total-harga"><strong>Total Harga:</strong> Rp ${totalHarga.toLocaleString()}</p>
+                `;
+            }
+    
+            // Panggil fungsi untuk memuat detail checkout saat halaman dimuat
+            loadCheckoutDetails();
+        });
+    </script>
+</body>
+</html>
